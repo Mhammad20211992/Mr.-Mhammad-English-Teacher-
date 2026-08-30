@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="الأستاذ محمد - مدرس خصوصي في اللغة الإنجليزية" data-en="Mr. Mhammad - English Teacher">الأستاذ محمد - مدرس في اللغة الإنجليزية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --wood-dark: #5D4037;
+            --wood: #795548;
+            --wood-medium: #8D6E63;
+            --wood-light: #A1887F;
+            --wood-pale: #BCAAA4;
+            --honey: #C4956A;
+            --honey-light: #D4A574;
+            --honey-bright: #E8C39E;
+            --gold: #C5A059;
+            --gold-bright: #D4AF37;
+            --gold-dark: #8B6914;
+            --black: #1a1a1a;
+            --charcoal: #2d2d2d;
+            --off-white: #FAF6F1;
+            --cream: #F5EDE3;
+            --paper: #FFFDF9;
+            --white: #FFFFFF;
+            --text: #3E2723;
+            --text-light: #6D4C41;
+            --shadow: 0 6px 25px rgba(93, 64, 55, 0.12);
+            --shadow-hover: 0 12px 40px rgba(93, 64, 55, 0.18);
+            --whatsapp: #4CAF50;
+            --whatsapp-dark: #388E3C;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--off-white);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.en { font-family: 'Inter', sans-serif; }
+        body.en h1, body.en h2, body.en h3, body.en h4 { font-family: 'Playfair Display', serif; }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 50px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        body.en .lang-switcher { right: auto; left: 1.5rem; }
+        .lang-switcher:hover { background: rgba(255,255,255,0.25); transform: scale(1.05); }
+
+        .lang-switcher .lang-btn {
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-switcher .lang-btn.active {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 2px 10px rgba(197, 160, 89, 0.4);
+        }
+
+        .lang-switcher .lang-btn:hover:not(.active) { color: var(--white); }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(170deg, var(--black) 0%, var(--wood-dark) 40%, var(--wood) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1920&q=80') center/cover;
+            opacity: 0.50;
+            mix-blend-mode: normal;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(93, 64, 55, 0.55);
+            z-index: 1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(197, 160, 89, 0.35);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            color: var(--gold);
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        body.en .hero h1 { font-size: 3rem; letter-spacing: 1px; }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--honey-light);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            color: rgba(255,255,255,0.8);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            animation: fadeInUp 1s ease 0.8s both;
+            margin-bottom: 2rem;
+        }
+
+        .hero-location i { color: var(--gold); }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .hero-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .hero-contact-btn:hover::before { left: 100%; }
+
+        .hero-contact-btn.phone-btn {
+            background: linear-gradient(135deg, var(--wood), var(--wood-dark));
+            border: 2px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 4px 20px rgba(93, 64, 55, 0.4);
+        }
+
+        .hero-contact-btn.whatsapp-btn {
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+            border: 2px solid rgba(76, 175, 80, 0.4);
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-contact-btn.whatsapp-btn i {
+            font-size: 1.8rem;
+        }
+
+        .hero-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            border-color: var(--gold);
+        }
+
+        .hero-contact-btn i { font-size: 1.2rem; }
+
+        .hero-contact-btn .number {
+            direction: ltr;
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 1.3rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section { padding: 5rem 1rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about { background: var(--paper); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image { position: relative; }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 3px solid var(--cream);
+        }
+
+        .about-image:hover img { transform: scale(1.01); }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -12px; right: -12px;
+            width: 100%; height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        body.en .about-image::before { right: auto; left: -12px; }
+
+        /* ===== 3D BOOKING ANIMATED BANNER ===== */
+        .booking-3d-banner {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(145deg, #ffffff 0%, #f5f0eb 50%, #ebe5de 100%);
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 60px rgba(93, 64, 55, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8),
+                inset 0 -1px 0 rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            border: 3px solid var(--cream);
+        }
+
+        .booking-3d-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .booking-3d-text {
+            position: absolute;
+            width: 90%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            opacity: 0;
+            transform: translateZ(-200px) rotateX(90deg) scale(0.3);
+            animation: none;
+        }
+
+        .booking-3d-text.text-ar {
+            animation: booking3DAr 10s ease-in-out infinite;
+        }
+
+        .booking-3d-text.text-en {
+            animation: booking3DEn 10s ease-in-out infinite;
+        }
+
+        .booking-3d-text span {
+            display: block;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #dc2626;
+            text-shadow:
+                0 1px 0 #b91c1c,
+                0 2px 0 #991b1b,
+                0 3px 0 #7f1d1d,
+                0 4px 0 #7f1d1d,
+                0 5px 10px rgba(220, 38, 38, 0.4),
+                0 8px 20px rgba(220, 38, 38, 0.2),
+                0 12px 30px rgba(0, 0, 0, 0.15);
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transform-style: preserve-3d;
+            transform: translateZ(30px);
+        }
+
+        .booking-3d-text.text-en span {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            letter-spacing: 3px;
+        }
+
+        /* Arabic: 2 words per line */
+        .booking-3d-text.text-ar .line1,
+        .booking-3d-text.text-ar .line2 {
+            font-size: 3rem;
+        }
+
+        @keyframes booking3DAr {
+            0% {
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(-90deg) rotateY(45deg) scale(0.2);
+            }
+            5% {
+                opacity: 1;
+                transform: translateZ(50px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+            }
+            8% {
+                transform: translateZ(30px) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            38% {
+                opacity: 1;
+                transform: translateZ(30px) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            45% {
+                opacity: 0;
+                transform: translateZ(200px) rotateX(90deg) rotateY(-45deg) scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(-90deg) rotateY(45deg) scale(0.2);
+            }
+        }
+
+        @keyframes booking3DEn {
+            0%, 45% {
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(90deg) rotateY(-45deg) scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: translateZ(50px) rotateX(-5deg) rotateY(5deg) scale(1.05);
+            }
+            53% {
+                transform: translateZ(30px) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            83% {
+                opacity: 1;
+                transform: translateZ(30px) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            90% {
+                opacity: 0;
+                transform: translateZ(200px) rotateX(-90deg) rotateY(45deg) scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(90deg) rotateY(-45deg) scale(0.2);
+            }
+        }
+
+        /* 3D floating particles on white background */
+        .booking-3d-particles {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .booking-3d-particles span {
+            position: absolute;
+            display: block;
+            width: 8px; height: 8px;
+            background: rgba(197, 160, 89, 0.15);
+            border-radius: 50%;
+            animation: floatParticle 6s ease-in-out infinite;
+        }
+
+        .booking-3d-particles span:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; width: 6px; height: 6px; }
+        .booking-3d-particles span:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; width: 10px; height: 10px; }
+        .booking-3d-particles span:nth-child(3) { top: 60%; left: 15%; animation-delay: 1s; width: 5px; height: 5px; }
+        .booking-3d-particles span:nth-child(4) { top: 80%; left: 70%; animation-delay: 1.5s; width: 8px; height: 8px; }
+        .booking-3d-particles span:nth-child(5) { top: 40%; left: 50%; animation-delay: 2s; width: 4px; height: 4px; }
+        .booking-3d-particles span:nth-child(6) { top: 15%; left: 45%; animation-delay: 2.5s; width: 7px; height: 7px; }
+        .booking-3d-particles span:nth-child(7) { top: 70%; left: 30%; animation-delay: 3s; width: 6px; height: 6px; }
+        .booking-3d-particles span:nth-child(8) { top: 30%; left: 85%; animation-delay: 3.5s; width: 5px; height: 5px; }
+        .booking-3d-particles span:nth-child(9) { top: 85%; left: 20%; animation-delay: 4s; width: 9px; height: 9px; }
+        .booking-3d-particles span:nth-child(10) { top: 50%; left: 75%; animation-delay: 4.5s; width: 4px; height: 4px; }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) scale(1.2);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-10px) translateX(-10px) scale(0.8);
+                opacity: 0.4;
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px) scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Shine sweep effect */
+        .booking-3d-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(255,255,255,0.4) 50%,
+                transparent 60%
+            );
+            animation: shineSweep 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shineSweep {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @media (max-width: 768px) {
+            .booking-3d-text span { font-size: 1.5rem; }
+            .booking-3d-text.text-en span { font-size: 2.2rem; }
+            .booking-3d-banner { aspect-ratio: 1/1; }
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--wood-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .about-content p {
+            color: var(--wood-medium);
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .qualification-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .qualification-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cream);
+            font-size: 1.02rem;
+        }
+
+        body.en .qualification-list li { flex-direction: row-reverse; }
+
+        .qualification-list li i {
+            color: var(--gold-dark);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* ===== SINGLE CAROUSEL (Fixed) ===== */
+        .carousel-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--off-white) 100%);
+            padding: 4rem 1rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            min-height: 340px;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.92);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .carousel-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--honey), var(--gold));
+        }
+
+        .carousel-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--wood-dark), var(--wood));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
+            box-shadow: 0 6px 20px rgba(93, 64, 55, 0.25);
+        }
+
+        .carousel-card h3 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--wood-dark);
+            margin-bottom: 1rem;
+        }
+
+        .carousel-card p {
+            color: var(--wood-medium);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            max-width: 500px;
+        }
+
+        .carousel-card .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--cream), var(--honey-bright));
+            color: var(--wood-dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--wood-pale);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot:hover {
+            background: var(--wood-light);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+        }
+
+        /* Availability Banner */
+        .availability-banner {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-top: 3px solid #dc2626;
+        }
+
+        .availability-banner i {
+            color: #dc2626;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .availability-banner span {
+            color: #dc2626;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+        }
+
+        body.en .availability-banner span { font-size: 1.8rem; }
+
+        @media (max-width: 768px) {
+            .availability-banner { padding: 2rem 1rem; }
+            .availability-banner span { font-size: 1.5rem; }
+            body.en .availability-banner span { font-size: 1.3rem; }
+            .availability-banner i { font-size: 1.5rem; }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        footer .heart { color: var(--honey); }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        body.en .fab-container { left: auto; right: 2rem; }
+
+        .fab {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(93, 64, 55, 0.35);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            border: 2px solid rgba(197, 160, 89, 0.4);
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(93, 64, 55, 0.45);
+        }
+
+        .fab-phone { background: linear-gradient(135deg, var(--wood), var(--wood-dark)); }
+
+        .fab-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+            border-color: rgba(76, 175, 80, 0.4);
+        }
+
+        .fab-whatsapp i {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .fab-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--wood-dark);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        body.en .fab-tooltip { right: auto; left: 70px; }
+
+        .fab:hover .fab-tooltip { opacity: 1; right: 75px; }
+        body.en .fab:hover .fab-tooltip { right: auto; left: 75px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            body.en .hero h1 { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .hero-contact { flex-direction: column; align-items: center; }
+            .hero-contact-btn { width: 90%; justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .carousel-track { min-height: 380px; }
+            .carousel-card { padding: 2rem 1.5rem; min-height: 340px; }
+            .carousel-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+            .carousel-card h3 { font-size: 1.2rem; }
+            .carousel-card p { font-size: 0.95rem; }
+            .fab-container { bottom: 1rem; left: 1rem; }
+            body.en .fab-container { left: auto; right: 1rem; }
+            .lang-switcher { top: 1rem; right: 1rem; }
+            body.en .lang-switcher { right: auto; left: 1rem; }
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher" onclick="toggleLanguage()">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-ar="مدرس لغة إنجليزية - دولة الإمارات العربية المتحدة" data-en="English Teacher - United Arab Emirates">
+                <i class="fas fa-star"></i> مدرس لغة إنجليزية - دولة الإمارات العربية المتحدة
+            </div>
+            <h1 data-ar="الأستاذ محمد " data-en="Mr. Mhammad">الأستاذ محمد </h1>
+            
+            <p class="hero-subtitle" data-ar="إجازة ودبلوم في الأدب الإنجليزي - جامعة دمشق" data-en="Bachelor's & Diploma in English Literature - Damascus University">إجازة ودبلوم في الأدب الإنجليزي - جامعة دمشق</p>
+            <p class="hero-desc" data-ar="خبرة طويلة وممتدة في التدريس " data-en="Extensive teaching experience ">خبرة طويلة وممتدة في التدريس </p>
+            <p class="hero-subtitle" data-ar="يقدم الدرس في منزل الطالب" data-en="Lessons in student House">يقدم الدرس في منزل الطالب</p>
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span data-ar="إمارة عجمان والشارقة وأم القيوين" data-en="Ajman & Sharjah & Umm AL Quwain">إمارة عجمان والشارقة وأم القيوين</span>
+            </div>
+
+            <div class="hero-contact">
+                <a href="tel:00971502037322" class="hero-contact-btn phone-btn">
+                    <i class="fas fa-phone-volume"></i>
+                    <span data-ar="اتصال هاتفي" data-en="Phone Call">اتصال هاتفي</span>
+                    <span class="number">00971502037322</span>
+                </a>
+                <a href="https://wa.me/971502037322" target="_blank" class="hero-contact-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                    <span class="number">00971502037322</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <div class="booking-3d-banner">
+                        <div class="booking-3d-scene">
+                            <div class="booking-3d-text text-ar">
+                                <span class="line1">سارع بحجز</span>
+                                <span class="line2">موعدك الآن</span>
+                            </div>
+                            <div class="booking-3d-text text-en">
+                                <span class="line1">Book</span>
+                                <span class="line2">Now!</span>
+                            </div>
+                        </div>
+                        <div class="booking-3d-particles">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal">
+                    <h3 data-ar="نبذة عن الأستاذ" data-en="About the Teacher">نبذة عن الأستاذ</h3>
+                    <p data-ar="الأستاذ محمد ، حاصل على إجازة ودبلوم في الأدب الإنجليزي من جامعة دمشق، ويتمتع بخبرة طويلة في مجال تدريس اللغة الإنجليزية    ." data-en="Mr. Mhammad holds a Bachelor's degree and a Diploma in English Literature from Damascus University, with extensive and long-standing experience in teaching English within the Syrian Arab Republic.">
+                        الأستاذ محمد ، حاصل على إجازة ودبلوم في الأدب الإنجليزي من جامعة دمشق، ويتمتع بخبرة طويلة في مجال تدريس اللغة الإنجليزية داخل الجمهورية العربية السورية.
+                    </p>
+                    <p data-ar="يقدم الأستاذ محمد دروسًا خصوصية متميزة في اللغة الإنجليزية، مع التركيز على تأسيس الطالب بأسلوب سهل ومناسب حسب الفئة العمرية، مما يضمن تحقيق أفضل النتائج  ." data-en="Mr. Mhammad offers distinguished private English lessons, focusing on building a strong foundation for students with an easy and age-appropriate approach, ensuring the best academic results.">
+                        يقدم الأستاذ محمد دروسًا خصوصية متميزة في اللغة الإنجليزية، مع التركيز على تأسيس الطالب بأسلوب سهل ومناسب حسب الفئة العمرية، مما يضمن تحقيق أفضل النتائج  .
+                    </p>
+                    <ul class="qualification-list">
+                        <li>
+                            <i class="fas fa-graduation-cap"></i>
+                            <span data-ar="إجازة في الأدب الإنجليزي - جامعة دمشق" data-en="Bachelor's in English Literature - Damascus University">إجازة في الأدب الإنجليزي - جامعة دمشق</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-certificate"></i>
+                            <span data-ar="دبلوم تأهيل تربوي - جامعة دمشق" data-en="Diploma in English Literature - Damascus University">دبلوم تأهيل تربوي - جامعة دمشق</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span data-ar="خبرة طويلة في التدريس داخل سوريا" data-en="Extensive teaching experience in Syria">خبرة طويلة في التدريس داخل سوريا</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-book-open"></i>
+                            <span data-ar="تدريس المنهج البريطاني والأمريكي" data-en="Teaching British & American Curriculum">تدريس المنهج البريطاني والأمريكي</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SINGLE MERGED CAROUSEL (7 Slides) ===== -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="carousel-container reveal">
+                <div class="carousel-track" id="main-track">
+                    <!-- Slide 1: American Curriculum -->
+                    <div class="carousel-slide active">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-flag-usa"></i></div>
+                            <h3 data-ar="المنهج الأمريكي" data-en="American Curriculum">المنهج الأمريكي</h3>
+                            <p data-ar="تدريس كامل للمنهج الأمريكي في اللغة الإنجليزية، مع التركيز على المهارات الأساسية القراءة، الكتابة، الاستماع، والمحادثة وفق المعايير الأمريكية." data-en="Complete teaching of the American English curriculum, focusing on core skills: reading, writing, listening, and speaking according to American standards.">
+                                تدريس كامل للمنهج الأمريكي في اللغة الإنجليزية، مع التركيز على المهارات الأساسية القراءة، الكتابة، الاستماع، والمحادثة وفق المعايير الأمريكية.
+                            </p>
+                            <span class="tag">American Curriculum</span>
+                        </div>
+                    </div>
+                    <!-- Slide 2: British Curriculum -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-crown"></i></div>
+                            <h3 data-ar="المنهج البريطاني" data-en="British Curriculum">المنهج البريطاني</h3>
+                            <p data-ar="تدريس متخصص للمنهج البريطاني ، مع إعداد الطلاب للاختبارات الدولية بكفاءة عالية." data-en="Specialized teaching of the British curriculum, preparing students for international exams with high efficiency.">
+                                تدريس متخصص للمنهج البريطاني ، مع إعداد الطلاب للاختبارات الدولية بكفاءة عالية.
+                            </p>
+                            <span class="tag">British Curriculum</span>
+                        </div>
+                    </div>
+                    <!-- Slide 3: Foundation -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-child"></i></div>
+                            <h3 data-ar="التأسيس الأكاديمي" data-en="Academic Foundation">التأسيس الأكاديمي</h3>
+                            <p data-ar="تأسيس قوي للغة الإنجليزية من الصفر، مع بناء المفردات والقواعد الأساسية بأسلوب سهل ومبسط يناسب جميع الأعمار." data-en="Strong foundation in English from scratch, building vocabulary and basic grammar with an easy and simplified approach suitable for all ages.">
+                                تأسيس قوي للغة الإنجليزية من الصفر، مع بناء المفردات والقواعد الأساسية بأسلوب سهل ومبسط يناسب جميع الأعمار.
+                            </p>
+                            <span class="tag">Foundation Building</span>
+                        </div>
+                    </div>
+                    <!-- Slide 4: Primary -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-seedling"></i></div>
+                            <h3 data-ar="المرحلة الابتدائية" data-en="Primary Stage">المرحلة الابتدائية</h3>
+                            <p data-ar="تأسيس ممتع وتفاعلي للأطفال، مع بناء الثقة في اللغة الإنجليزية من خلال أنشطة وألعاب تعليمية ممتعة." data-en="Fun and interactive foundation for children, building confidence in English through educational activities and games.">
+                                تأسيس ممتع وتفاعلي للأطفال، مع بناء الثقة في اللغة الإنجليزية من خلال أنشطة وألعاب تعليمية ممتعة.
+                            </p>
+                            <span class="tag">Ages 6-11</span>
+                        </div>
+                    </div>
+                    <!-- Slide 5: Middle School -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-book-reader"></i></div>
+                            <h3 data-ar="المرحلة المتوسطة" data-en="Middle School">المرحلة المتوسطة</h3>
+                            <p data-ar="تعميق المفاهيم وبناء المهارات اللغوية، مع التركيز على تطوير القدرات التحليلية والنقدية في اللغة الإنجليزية." data-en="Deepening concepts and building language skills, focusing on developing analytical and critical abilities in English.">
+                                تعميق المفاهيم وبناء المهارات اللغوية، مع التركيز على تطوير القدرات التحليلية والنقدية في اللغة الإنجليزية.
+                            </p>
+                            <span class="tag">Ages 12-14</span>
+                        </div>
+                    </div>
+                    <!-- Slide 6: High School -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-user-graduate"></i></div>
+                            <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
+                            <p data-ar="إعداد متقدم للاختبارات الدولية ، مع مراجعة شاملة واستراتيجيات للنجاح في الامتحانات." data-en="Advanced preparation for international exams, with comprehensive review and exam success strategies.">
+                                إعداد متقدم للاختبارات الدولية، مع مراجعة شاملة واستراتيجيات للنجاح في الامتحانات.
+                            </p>
+                            <span class="tag">Ages 15-18</span>
+                        </div>
+                    </div>
+                    <!-- Slide 7: Adults -->
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="carousel-icon"><i class="fas fa-briefcase"></i></div>
+                            <h3 data-ar="الكبار والمهنيون" data-en="Adults & Professionals">الكبار والمهنيون</h3>
+                            <p data-ar="تطوير المهارات المهنية في اللغة الإنجليزية، تشمل المحادثة التجارية، كتابة التقارير، والعرض التقديمي." data-en="Developing professional language skills, including business conversation, report writing, and presentation.">
+                                تطوير المهارات المهنية في اللغة الإنجليزية، تشمل المحادثة التجارية، كتابة التقارير، والعرض التقديمي.
+                            </p>
+                            <span class="tag">18+ Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-dots" id="main-dots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(5)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(6)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Banner -->
+    <div class="availability-banner">
+        <i class="fas fa-map-marked-alt"></i>
+        <span data-ar="الدروس ضمن إمارة عجمان والشارقة وأم القيوين" data-en="Lessons available in Sharjah & Ajman & Umm AL Quwain">الدروس ضمن إمارة عجمان والشارقة وأم القيوين</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span> &copy; 2026 | <span data-ar="الأستاذ محمد " data-en="Mr. Mhammad">الأستاذ محمد </span>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <span data-ar="مدرس لغة إنجليزية - عجمان والشارقة وأم القيوين- الإمارات العربية المتحدة" data-en="English Teacher - Ajman & Sharjah & Umm AL Quwain - United Arab Emirates">مدرس لغة إنجليزية - عجمان والشارقة وأم القيوين- الإمارات العربية المتحدة</span>
+        </p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="tel:00971502037322" class="fab fab-phone" title="Phone Call">
+            <i class="fas fa-phone-volume"></i>
+            <span class="fab-tooltip" data-ar="اتصال هاتفي" data-en="Phone Call">اتصال هاتفي</span>
+        </a>
+        <a href="https://wa.me/971502037322" target="_blank" class="fab fab-whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-tooltip">WhatsApp</span>
+        </a>
+    </div>
+
+    <script>
+        // Carousel State
+        let currentSlide = 0;
+        const totalSlides = 7;
+
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+            particle.style.width = (2 + Math.random() * 4) + 'px';
+            particle.style.height = particle.style.width;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Carousel Functions
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('main-track');
+            const dots = document.getElementById('main-dots');
+            const slides = track.querySelectorAll('.carousel-slide');
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            const dotButtons = dots.querySelectorAll('.carousel-dot');
+            dotButtons.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Auto-play carousel every 3 seconds
+        setInterval(nextSlide, 5000);
+
+        // Language State
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const body = document.body;
+            const html = document.documentElement;
+
+            if (currentLang === 'en') {
+                body.classList.add('en');
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+            } else {
+                body.classList.remove('en');
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+            }
+
+            document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + currentLang);
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else if (el.tagName === 'TITLE') {
+                    document.title = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+            });
+
+            const titleEl = document.querySelector('title');
+            if (titleEl) {
+                document.title = titleEl.getAttribute('data-' + currentLang);
+            }
+        }
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
